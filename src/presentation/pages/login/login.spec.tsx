@@ -38,7 +38,7 @@ const populateEmailField = (sut: RenderResult, email = faker.internet.email()): 
 }
 
 const populatePasswordField = (sut: RenderResult, password = faker.internet.password()): void => {
-    const passwordInput = sut.getByTestId('email')
+    const passwordInput = sut.getByTestId('password')
     fireEvent.input(passwordInput, { target: {value: password}});  
 }
 
@@ -125,6 +125,14 @@ describe('Login Component', () => {
         simulateValidSubmit(sut);
 
         expect(authenticationSpy.callsCount).toBe(1);
+    });
+
+    test('Should not call Authentication if form is invalid', () => {
+        const validationError = faker.random.words();
+        const { sut, authenticationSpy } = makeSut({validationError})
+        populateEmailField(sut);
+        fireEvent.submit(sut.getByTestId('form'))
+        expect(authenticationSpy.callsCount).toBe(0);
     });
 
 })
