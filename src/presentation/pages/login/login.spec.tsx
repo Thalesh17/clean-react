@@ -57,4 +57,14 @@ describe('Login Component', () => {
             email: 'any_email'
         })
     });
+    test('Should call Validation with correct password', () => {
+        const { sut, validationSpy } = makeSut();
+
+        const emailInput = sut.getByTestId('password')
+        fireEvent.input(emailInput, { target: { value: 'any_password' } })
+
+        expect(validationSpy.input).toEqual({
+            password: 'any_password'
+        })
+    });
 })
