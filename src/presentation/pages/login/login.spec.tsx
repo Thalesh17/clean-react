@@ -2,7 +2,7 @@ import React from 'react'
 import { render, RenderResult, fireEvent, cleanup, waitFor } from '@testing-library/react'
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
-import Login from './login'
+import {Login} from '@/presentation/pages'
 import faker from 'faker';
 import { ValidationStub, AuthenticationSpy } from '@/presentation/test'
 import { InvalidCredentialsError } from '@/domain/errors';
