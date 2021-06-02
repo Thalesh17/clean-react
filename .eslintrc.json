@@ -6,14 +6,16 @@
     },
     "extends": "standard-with-typescript",
     "parserOptions": {
-        "project": "./tsconfig.json",
+        "project": "./tsconfig.json"
     },
     "rules": {
-        "@typescript-eslint/consistent-type-definitions": "off",
+		"@typescript-eslint/consistent-type-definitions": "off",
         "@typescript-eslint/strict-boolean-expressions": "off",
         "@typescript-eslint/return-await": "off",
         "@typescript-eslint/comma-spacing": "off",
         "react/jsx-uses-react": "error",
-        "react/jsx-uses-vars": "error"
+        "react/jsx-uses-vars": "error",
+        "indent": "off",
+  		"@typescript-eslint/indent": "off"
     }
 }
